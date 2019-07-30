@@ -15,6 +15,12 @@ class WebViewController:UIViewController,WKNavigationDelegate  {
 
     }
 
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        let url = navigationAction.request.url
+        print("跳转url\(url)")
+        decisionHandler(WKNavigationActionPolicy.allow);
+    }
+
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
 
     }
